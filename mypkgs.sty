@@ -1,0 +1,95 @@
+%% ------------------------------------------
+%% Author: Taishi Nakashima (taishi@ieee.org)
+%% Last update: 2021/12/01
+%% ------------------------------------------
+\usepackage[linesnumberedhidden,ruled,vlined]{algorithm2e}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage[nobreak,super]{cite}
+\usepackage{color}
+\usepackage{pxrubrica}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage[skip=0pt,labelformat=simple]{subcaption}
+\renewcommand{\thesubfigure}{}
+\renewcommand{\thefigure}{}
+\renewcommand{\figurename}{}
+
+% math symbols
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{diffcoeff}
+\usepackage{dsfont}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage{mdframed}
+\usepackage{verbatim}
+
+% multibib
+\usepackage{multibib}
+\newcites{P}{発表文献}
+\newcites{D}{国内会議}
+\newcites{I}{国際会議}
+\newcites{C}{共著}
+\newcites{CI}{共著}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins}
+\usepackage{tikz}
+\usepackage{pxpgfmark}
+\usetikzlibrary{shapes.callouts}
+\usetikzlibrary{positioning}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\hypersetup{%
+  hidelinks,
+  colorlinks,
+  linkcolor=,
+  urlcolor=midori,
+  pdfstartview=Fit,
+  breaklinks=true
+}
+
+% 絵文字
+\usepackage{graphicx}
+\usepackage{emoji}
+\usepackage{fontawesome}
+\usepackage{wasysym}
+
+% itemizeのラベル用
+\newcommand{\pros}{\textcolor{structure.fg}{\faThumbsOUp}}
+\newcommand{\cons}{\textcolor{alerted text.fg}{\faThumbsODown}}
+\newcommand{\goal}{\textcolor{structure.fg}{\faAngleRight}}
+\newcommand{\todo}{\Square}
+\newcommand{\done}{\CheckedBox}
+\newcommand{\rmark}{\faHandORight}
+\newcommand{\new}{\emoji{new-button}}
+\newenvironment{trienv}{\only{\setbeamertemplate{items}[triangle]}}{}
+
+% custom footnote
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+% TikZ commands to highlight math symbols
+\newcommand{\highlight}[2][structure.fg!50!white]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!60](x){#2};}}
+\newcommand{\highlightcapabove}[3][structure.fg]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[above=0.4em of x, color=#1!80]{#3};}}
+\newcommand{\highlightcapbelow}[3][structure.fg]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[below=0.4em of x, color=#1!80]{#3};}}
+\newcommand{\eqmark}[2]{\tikz[remember picture,baseline=(#1).base,outer sep=0pt,inner sep=0pt]{\node (#1){#2};}}
+
+% \includegraphics するときに `fig/` を省略できる
+\graphicspath{{./fig/}}
+
+% BibTeX
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack%
+\@for\@citeb:=#2\do{%
+  \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
+  \@esphack}
+\renewcommand\@citess[1]{\textsuperscript{~[#1]}}
+\makeatother%chktex 17

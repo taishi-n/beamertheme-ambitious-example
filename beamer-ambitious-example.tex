@@ -1,0 +1,27 @@
+% !TEX engine = lualatex
+% !TEX producer = dvipdfmx
+% !TEX outputDirectory = build
+% !TEX moveResultToSourceDirectory = false
+\documentclass[lualatex,unicode,12pt,t,professionalfonts]{beamer}
+
+% テーマの設定
+\usetheme{ambitious}
+\ambiset{sectionpage=progressbar,subsectionpage=progressbar}
+
+\usepackage{mypkgs}
+\usepackage{ambitiousmod}
+
+\title{Beamer オリジナルテーマ ambitious}
+\date{\today}
+\author{Taishi Nakashima}
+\institute{%
+東京都立大学大学院システムデザイン研究科 情報科学域 博士後期課程1年%
+}
+
+\begin{document}
+\input{sections/000-header}
+\input{sections/010-about-en}
+\input{sections/020-about}
+\input{sections/980-publications}
+\input{sections/990-reference}
+\end{document}

@@ -1,0 +1,17 @@
+%!TEX root = ../progress_report_nakashima.tex
+{
+  \appendix
+  \setbeamertemplate{frametitle}[hidenumber]
+  \begin{frame}[noframenumbering]{発表文献（主著）}
+    \begin{block}{国際会議（査読あり）}
+      \beamertemplatetextbibitems%
+      \bibliographystyleI{shortIEEEtranSA}
+      \bibliographyI{IEEEabrv,bib/conf_full,bib/ref}
+    \end{block}
+    \begin{block}{国内会議（査読なし）}
+      \beamertemplatetextbibitems%
+      \bibliographystyleD{shortIEEEtranSA}
+      \bibliographyD{IEEEabrv,bib/conf_full,bib/ref}
+    \end{block}
+  \end{frame}
+}

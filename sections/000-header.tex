@@ -1,0 +1,21 @@
+%!TEX root = ../progress_report_nakashima.tex
+% Magic commands for publication list
+\bstctlcite{IEEEexample:BSTcontrol}
+\bstctlcite[@auxoutD]{IEEEexample:BSTcontrol}
+\bstctlcite[@auxoutI]{IEEEexample:BSTcontrol}
+
+% Publication by \nocite command with prefixes defined in mypkgs.sty
+% mypkgs.sty の multibib で書いているプレフィックスを付けて \nocite すると発表文献を簡単に入れられます．
+\nociteI{Nakashima:2020:FA}
+\nociteI{Nakashima:2020:EUSIPCO}
+\nociteI{Nakashima:2021:ICASSP}
+\nociteD{Nakashima:2019:SIP}
+\nociteD{Nakashima:2020:ASJ:S}
+
+\maketitle
+{
+  \begin{frame}{本日の内容}
+    \normalfont
+    \tableofcontents[subsectionstyle=show,subsubsectionstyle=hide]
+  \end{frame}
+}

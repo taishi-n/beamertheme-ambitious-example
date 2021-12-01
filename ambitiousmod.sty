@@ -1,0 +1,45 @@
+%% ------------------------------------------
+%% Author: Taishi Nakashima (taishi@ieee.org)
+%% Last update: 2021/07/28
+%% ------------------------------------------
+
+% theme setting
+\ambiset{sectionpage=progressbar}
+
+% Figure setting
+\setlength{\belowcaptionskip}{-8pt}
+
+\newlength{\figwidth}
+\setlength{\figwidth}{320pt}
+\setkeys{Gin}{width=\figwidth,keepaspectratio=true}
+
+% To remove the section title frames, comment this block out
+\AtBeginSection[]{%
+   % {
+   %    \setstretch{0.8}
+   %    \setbeamertemplate{footline}{}
+   %    \begin{frame}<beamer>%[shrink]
+   %       \frametitle{目次}
+   %       \tableofcontents[currentsection,subsubsectionstyle=hide]
+   %    \end{frame}
+   %    \addtocounter{framenumber}{-1}% If you don't want them to affect the slide number
+   % }
+}
+
+% Font setting
+\usepackage{luatexja}
+\usepackage{fontspec}
+\usepackage{luatexja-fontspec}
+
+% Modify font set
+\setsansfont{Helvetica Neue Light}[%
+    Ligatures      = TeX,
+    BoldFont       = Helvetica Neue Bold,
+    ItalicFont     = Helvetica Neue Light Italic,
+    BoldItalicFont = Helvetica Neue Bold Italic
+]
+\setmainjfont{HiraginoSans-W1}[BoldFont=HiraginoSans-W5]
+
+\usepackage{unicode-math}
+\setmathfont{NewCMMath-Regular.otf}
+\renewcommand{\bm}{\symbfit}

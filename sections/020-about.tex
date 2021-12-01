@@ -1,0 +1,93 @@
+%!TEX root = ../beamer-ambitious-example.tex
+\section{テーマについて}
+\subsection{ブロック}
+\begin{frame}{\insertsubsection}
+  なんかすごい手法\cite{Ono:2010:LVAICA,Ono:2011:WASPAA,Ono:2012:IWAENC}
+  \begin{columns}[T,onlytextwidth]
+    \column{.5\linewidth}
+      \begin{block}{block}
+        block の色は\structure{\ruby[g]{群青}{ぐんじょう}色}
+      \end{block}
+      \begin{exampleblock}{exampleblock}
+        example block の色は\textcolor{example text.fg}{なんかよくわからん緑色}
+      \end{exampleblock}
+      \begin{alertblock}{alertblock}
+        alert block の色は\textcolor{alerted text.fg}{緋色}
+      \end{alertblock}
+    \column{.5\linewidth}
+      \ambiset{block=fill}
+      \begin{block}{block}
+        block の色は\structure{\ruby[g]{群青}{ぐんじょう}色}
+      \end{block}
+      \begin{exampleblock}{exampleblock}
+        example block の色は\textcolor{example text.fg}{なんかよくわからん緑色}
+      \end{exampleblock}
+      \begin{alertblock}{alertblock}
+        alert block の色は\textcolor{alerted text.fg}{緋色}
+      \end{alertblock}
+      ブロックの背景を塗りつぶすこともできます
+  \end{columns}
+\end{frame}
+
+{
+  \setbeamertemplate{frametitle}[hidenumber]
+  \begin{frame}[noframenumbering]{\insertsubsection}
+    ページ番号を一時的に消すこともできます
+    \uncover<2->{ページ数も矛盾しません！}
+  \end{frame}
+}
+
+\subsection{Itemize}
+\begin{frame}{\insertsubsection}
+    見てくださいこのかわいいラベルたち
+    \begin{itemize}
+      \item[\pros] Pros
+      \item[\cons] Cons
+      \item[\todo] todo的なやつ
+      \item[\done] todo完了的なやつ
+      \item[\new] 新しいやつ
+      \item[\goal] 「そこで，」的なやつ
+    \end{itemize}
+\end{frame}
+
+\newcommand{\Obs}{\bm{x}}
+\newcommand{\Src}{\bm{s}}
+\newcommand{\Mix}{\bm{A}}
+\newcommand{\freq}{f}
+\newcommand{\tframe}{t}
+\newcommand{\ft}{\freq\tframe}
+\begin{frame}{数式の装飾}
+  \begin{equation*}
+    \tcboxmath[
+        enhanced,
+        frame hidden,
+        interior hidden,
+        size=minimal,
+        underlay={\onslide<2->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
+        overlay={\onslide<2->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=0] +(-3mm,-4mm) node[left] {観測信号};}
+
+        }
+    ]{\Obs _{\ft}}
+    =
+    \tcboxmath[
+        enhanced,
+        frame hidden,
+        interior hidden,
+        size=minimal,
+        underlay={\onslide<4->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
+        overlay={\onslide<4->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=180] +(3mm,-8mm) node[right] {混合行列};}
+
+        }
+    ]{\Mix _{\freq}}
+    \tcboxmath[
+        enhanced,
+        frame hidden,
+        interior hidden,
+        size=minimal,
+        underlay={\onslide<3->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
+        overlay={\onslide<3->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=180] +(3mm,-4mm) node[right] {音源信号};}
+
+        }
+    ]{\Src _{\ft}}
+  \end{equation*}
+\end{frame}
