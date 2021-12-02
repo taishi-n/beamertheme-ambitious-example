@@ -2,7 +2,7 @@
 \section{テーマについて}
 \subsection{ブロック}
 \begin{frame}{\insertsubsection}
-  なんかすごい手法\cite{Ono:2010:LVAICA,Ono:2011:WASPAA,Ono:2012:IWAENC}
+  なんかすごい手法\cite{Ono:2010:LVAICA,Ono:2011:WASPAA,Ono:2012:IWAENC,akhtar:2012:ISCAS,}
   \begin{columns}[T,onlytextwidth]
     \column{.5\linewidth}
       \begin{block}{block}
@@ -52,42 +52,26 @@
 
 \newcommand{\Obs}{\bm{x}}
 \newcommand{\Src}{\bm{s}}
+\newcommand{\Est}{\bm{y}}
 \newcommand{\Mix}{\bm{A}}
+\newcommand{\Sep}{\bm{W}}
 \newcommand{\freq}{f}
 \newcommand{\tframe}{t}
 \newcommand{\ft}{\freq\tframe}
 \begin{frame}{数式の装飾}
   \begin{equation*}
-    \tcboxmath[
-        enhanced,
-        frame hidden,
-        interior hidden,
-        size=minimal,
-        underlay={\onslide<2->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
-        overlay={\onslide<2->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=0] +(-3mm,-4mm) node[left] {観測信号};}
-
-        }
-    ]{\Obs _{\ft}}
+    \hlmath<2-5>{\Obs _{\ft}}  {観測信号}{(-1\zw,-1\zw)} {left} {structure.fg}{1.3em}%
     =
-    \tcboxmath[
-        enhanced,
-        frame hidden,
-        interior hidden,
-        size=minimal,
-        underlay={\onslide<4->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
-        overlay={\onslide<4->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=180] +(3mm,-8mm) node[right] {混合行列};}
-
-        }
-    ]{\Mix _{\freq}}
-    \tcboxmath[
-        enhanced,
-        frame hidden,
-        interior hidden,
-        size=minimal,
-        underlay={\onslide<3->{\fill[structure.fg!20] (frame.south west) rectangle (frame.north east);}},
-        overlay={\onslide<3->{\draw[structure.fg,<-] ([yshift=-1mm]frame.south) to[out=-90,in=180] +(3mm,-4mm) node[right] {音源信号};}
-
-        }
-    ]{\Src _{\ft}}
+    \hlmath<4-5>{\Mix _{\freq}}{混合行列}{(1\zw,-2.2\zw)}{right}{alerted text.fg}{1.3em}%
+    \hlmath<3-5>{\Src _{\ft}}  {音源信号}{(1\zw,-1\zw)}  {right}{example text.fg}{1.3em}%
   \end{equation*}
+
+  \onslide<6->{
+    \begin{equation*}
+      \hlmath<6->{\Est _{\ft}}  {分離信号}{(-1\zw,-1\zw)} {left} {structure.fg}{1.3em}%
+      =
+      \hlmath<7->{\Sep _{\freq}}{分離行列}{(1\zw,-2.2\zw)}{right}{alerted text.fg}{1.3em}%
+      \hlmath<8->{\Mix _{\ft}}  {観測信号}{(1\zw,-1\zw)}  {right}{example text.fg}{1.3em}%
+    \end{equation*}
+  }
 \end{frame}

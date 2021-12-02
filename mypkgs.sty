@@ -75,10 +75,18 @@
 \renewcommand{\thefootnote}{\arabic{footnote}}
 
 % TikZ commands to highlight math symbols
-\newcommand{\highlight}[2][structure.fg!50!white]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!60](x){#2};}}
-\newcommand{\highlightcapabove}[3][structure.fg]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[above=0.4em of x, color=#1!80]{#3};}}
-\newcommand{\highlightcapbelow}[3][structure.fg]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[below=0.4em of x, color=#1!80]{#3};}}
-\newcommand{\eqmark}[2]{\tikz[remember picture,baseline=(#1).base,outer sep=0pt,inner sep=0pt]{\node (#1){#2};}}
+% reference: https://qiita.com/t_kemmochi/items/483b8fcdb5db8d1f5d5e
+% <#7: overlayのタイミング>{#1: 数式}{#2: 数式の説明}{#3 網掛けの下端中央から数式の説明までの差分}{#4 数式の説明の開始位置}{#5 網掛けの色}{#5 網掛けの高さ}
+\newcommand<>{\hlmath}[6]{%
+    \tcboxmath[
+      enhanced,
+      frame hidden,
+      interior hidden,
+      size=minimal,
+      overlay={\onslide#7{\fill[#5!20] (frame.south west) rectangle ([yshift=#6]frame.south east);}},
+      underlay={\onslide#7{\draw[#5] (frame.south) to +#3 node[#4] {\textbf{#2}};}}
+    ]{#1}
+}
 
 % \includegraphics するときに `fig/` を省略できる
 \graphicspath{{./fig/}}
