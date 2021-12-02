@@ -3,7 +3,7 @@
 ## How to compile
 ### Clone this repository
 ```
-git clone --recursive <THIS_URL>
+git clone --recursive https://github.com/taishi-n/beamertheme-ambitious-example
 ```
 
 ### Compile
